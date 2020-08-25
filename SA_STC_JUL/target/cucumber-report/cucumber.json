@@ -1,0 +1,250 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "output": [
+              "Starting scenario..",
+              "Verify that the location in the header title on properties results page matches the location entered on search page"
+            ],
+            "result": {
+              "duration": 6423601656,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario(Scenario)"
+            }
+          }
+        ],
+        "line": 16,
+        "name": "Verify that the location in the header title on properties results page matches the location entered on search page",
+        "description": "",
+        "id": "for-sale-properties-results-header-title;verify-that-the-location-in-the-header-title-on-properties-results-page-matches-the-location-entered-on-search-page;;2",
+        "after": [
+          {
+            "output": [
+              "Ending scenario.."
+            ],
+            "result": {
+              "duration": 1432824026,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 5733320618,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "that the user has signed in successfully",
+            "match": {
+              "location": "SigninSteps.that_the_user_has_signed_in_successfully()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4661904876,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "the user enters \"Edinburgh\" into \"searchLocationText\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Edinburgh",
+                  "offset": 17
+                },
+                {
+                  "val": "searchLocationText",
+                  "offset": 34
+                }
+              ],
+              "location": "ForSalePropertiesResultsHeaderTitleSteps.the_user_enters(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 7722857621,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "user clicks \"searchButton\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "searchButton",
+                  "offset": 13
+                }
+              ],
+              "location": "GenericSteps.I_click(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 542692325,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "the sales properties results page \"headerTitleLabel\" should show \"Edinburgh\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "headerTitleLabel",
+                  "offset": 35
+                },
+                {
+                  "val": "Edinburgh",
+                  "offset": 66
+                }
+              ],
+              "location": "ForSalePropertiesResultsHeaderTitleSteps.header_title_location(String,String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@RegressionTest"
+          },
+          {
+            "name": "@SalePropertiesResultsPageHeaderTitle"
+          },
+          {
+            "name": "@UserStory(\"ZooplaApp-135\")"
+          }
+        ]
+      }
+    ],
+    "name": "For Sale Properties Results Header Title",
+    "description": "  As a User \n  I want to see the location string in the header title\n  So that I am sure whilst searching for properties in correct location",
+    "id": "for-sale-properties-results-header-title",
+    "keyword": "Feature",
+    "uri": "features/forSalePropertiesResultsHeaderTitle.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "output": [
+              "Starting scenario..",
+              "Verify that the user can sign in successfully in to Zoopla"
+            ],
+            "result": {
+              "duration": 4748601569,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario(Scenario)"
+            }
+          }
+        ],
+        "line": 15,
+        "name": "Verify that the user can sign in successfully in to Zoopla",
+        "description": "",
+        "id": "signin-to-zoopla;verify-that-the-user-can-sign-in-successfully-in-to-zoopla;;2",
+        "after": [
+          {
+            "output": [
+              "Ending scenario.."
+            ],
+            "result": {
+              "duration": 861793601,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 3655116715,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "that I am on the sign in page",
+            "match": {
+              "location": "SigninSteps.that_I_am_on_the_sign_in_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1669113848,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "the user enters \"mentor@testingementor.com\" and \"mentor123\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "mentor@testingementor.com",
+                  "offset": 17
+                },
+                {
+                  "val": "mentor123",
+                  "offset": 49
+                }
+              ],
+              "location": "SigninSteps.the_user_enters_and(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 39144075,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "Signin should be \"successful\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "successful",
+                  "offset": 18
+                }
+              ],
+              "location": "SigninSteps.signin_should_be_successful(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Signin"
+          },
+          {
+            "name": "@SmokeTest"
+          },
+          {
+            "name": "@RegressionTest"
+          }
+        ]
+      }
+    ],
+    "name": "Signin to Zoopla",
+    "description": "  As a User \n  I want to Signin to Zoopla successfully\n  So that I can start searching for properties",
+    "id": "signin-to-zoopla",
+    "keyword": "Feature",
+    "uri": "features/signin.feature",
+    "tags": []
+  }
+]
