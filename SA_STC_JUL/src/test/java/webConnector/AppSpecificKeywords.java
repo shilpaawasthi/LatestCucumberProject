@@ -27,8 +27,23 @@ public class AppSpecificKeywords extends GenericKeywords {
 		try {
 			//base.log.info("Clicking Sign In link");			
 			
-			base.keyword.waitUntilElementIsVisible("searchLocationText");
+			base.keyword.waitUntilElementIsVisible("searchProductText");
 			//base.keyword.click("signinLink");
+			
+			base.keyword.waitUntilPageLoadsComplelety();
+			
+			//Check email text is located
+			//base.keyword.waitUntilElementIsVisible("signInheaderTitleLabel");
+		} catch (Exception e) {
+			base.log.info(e.getMessage());
+		}
+	}
+	public void getToBasket() {
+		try {
+			//base.log.info("Clicking Sign In link");			
+			
+			base.keyword.waitUntilElementIsVisible("viewBasket");
+			base.keyword.click("viewBasket");
 			
 			base.keyword.waitUntilPageLoadsComplelety();
 			

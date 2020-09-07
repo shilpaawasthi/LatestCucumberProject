@@ -25,10 +25,10 @@ public class SearchAndAddProduct {
 		    	
 		    	// Get to Search page
 		    	base.keyword.getToSearchPage();
+		    	base.keyword.waitUntilPageLoadsComplelety();
 		    	
 		    	// check element exists
-		    	boolean result = base.keyword.checkElementExists("searchpageLabel");
-				base.keyword.waitUntilPageLoadsComplelety();
+		    	boolean result = base.keyword.checkElementExists("searchPageLabel");
 				Assert.assertTrue(result);
 				base.log.info("User is on the Search page");
 			}  catch (Exception e) {
@@ -42,23 +42,23 @@ public class SearchAndAddProduct {
 
 
 	@When("^the user searches for \"([^\"]*)\"$")
-	public void the_user_searches_for(String data) throws Throwable {
+	public void the_user_searches_for(String product) throws Throwable {
 			
-			String object = "searchLocationText";
-			String searchButton = "searchButton";
+			//String object = "searchLocationText";
+			//String searchButton = "searchButton";
 			
-			base.log.info("* When the user enters " + data + " into " + object);
+			base.log.info("* When the user enters " + product + " into " + "searchProductText");
 			
-			base.keyword.waitUntilElementIsVisible(object);
-			base.keyword.type(object, data);
+			base.keyword.waitUntilElementIsVisible("searchProductText");
+			base.keyword.type("searchProductText", product );
 			base.keyword.sleep(Constants.sleepTimeOneSecond);
 
-			// Click option from the auto complete suggested locations
+			// Click option from the auto complete suggested products
 			
-			base.keyword.waitUntilElementIsVisible("autoCompleteSearchLocationLink");
-			base.keyword.click("autoCompleteSearchLocationLink");
-			base.keyword.sleep(Constants.sleepTimeThreeSeconds);
-			base.keyword.getElement(searchButton).click();
+			//base.keyword.waitUntilElementIsVisible("autoCompleteSearchLocationLink");
+			//base.keyword.click("autoCompleteSearchLocationLink");
+			//base.keyword.sleep(Constants.sleepTimeThreeSeconds);
+			base.keyword.getElement("searchButton").click();
 			base.keyword.sleep(Constants.sleepTimeThreeSeconds);
 				
 			// check next page
@@ -68,7 +68,7 @@ public class SearchAndAddProduct {
 	    	base.keyword.sleep(Constants.sleepTimeThreeSeconds);
 	    	 
 	    	base.keyword.waitUntilPageLoadsComplelety();
-		    base.keyword.checkElementExists("productname");
+		    base.keyword.checkElementExists("selectedProductNameBasedOnSearchTerm");
 		    base.keyword.sleep(Constants.sleepTimeThreeSeconds);
 		    	
 	}
@@ -76,14 +76,16 @@ public class SearchAndAddProduct {
 	@And("^adds product to the basket$")
 	public void adds_product_to_the_basket() throws Throwable {
 		
-		 String productAddButtonObject ="productAddButton";
+		  //click add button and check cart icon 
+		
+		 //String productAddButtonObject ="productAddButton";
 		 
 		 base.keyword.waitUntilPageLoadsComplelety();
-		 base.keyword.getElement(productAddButtonObject).click();
+		 base.keyword.getElement("selectedProductAddButton").click();
 	     base.keyword.sleep(Constants.sleepTimeThreeSeconds);
 	     
 	     base.keyword.waitUntilPageLoadsComplelety();
-	     base.keyword.checkElementExists("ProductViewBasket");
+	    // base.keyword.checkElementExists("viewBasketIconOfAddedSearchProduct");
 	     base.keyword.sleep(Constants.sleepTimeThreeSeconds);
 	    
 	}
@@ -91,14 +93,23 @@ public class SearchAndAddProduct {
 	@Then("^the added \"([^\"]*)\" should be available in the basket$")
 	public void the_added_should_be_available_in_the_basket(String string) throws Throwable  {
 		
-		String expected = "AddedProductViewBasket";
 		
-		base.keyword.waitUntilPageLoadsComplelety();
-	    boolean actualResult = base.keyword.checkElementExists("AddedProductViewBasket");
+		//String expected = "AddedProductViewBasket";
+		
+    	// Get to Basket page
+    	base.keyword.getToBasket();
+    	base.keyword.waitUntilPageLoadsComplelety();
+    	
+    	
+	    boolean actual = base.keyword.checkElementExists("searchProductAtBasketSummary");
+	    //base.keyword.waitUntilPageLoadsComplelety();
 	    base.keyword.sleep(Constants.sleepTimeThreeSeconds);
-	    Assert.assertTrue(expected, actualResult);
+	    //System.out.println(actual);
 	    
-	}
+	    Assert.assertEquals(true, actual);
+	    
+	    
+	} 
 }	
 
 

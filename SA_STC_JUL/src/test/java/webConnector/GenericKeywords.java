@@ -136,6 +136,11 @@ public class GenericKeywords extends BaseUtil {
 
 		return actual;
 	}
+	public void popupHanlder() {
+		
+		base.driver.switchTo().alert().accept();
+		
+	}
 
 	public void closeBrowser() {
 		//base.log.info("Closing browser..");
